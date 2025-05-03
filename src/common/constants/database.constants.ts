@@ -5,6 +5,7 @@ export const CONFIG_DATABASE = <T>(): T => ({
     username: process.env.DATABASE_USER,
     password: process.env.DATABASE_PWD,
     database: process.env.DATABASE,
+    autoLoadEntities: true,
     entities: ['dist/**/*.entity.js'],
     migrations: ['dist/infra/database/migrations/*.js'],
 } as T)
