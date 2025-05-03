@@ -3,6 +3,6 @@ import { CONFIG_DATABASE } from "src/common/constants";
 
 export class DatabaseService implements TypeOrmOptionsFactory {
     createTypeOrmOptions(connectionName?: string): TypeOrmModuleOptions {
-        return CONFIG_DATABASE()
+        return CONFIG_DATABASE<TypeOrmModuleOptions>()
     }
 }
