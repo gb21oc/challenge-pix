@@ -61,7 +61,7 @@ export class TraderService {
         try {
             const options = {
                 select: {
-                    cpf: true,
+                    cnpj: true,
                     email: true,
                     fullName: true,
                     id: true
