@@ -1,4 +1,3 @@
-import { Transform } from "class-transformer";
 import { IsNotEmpty, IsString } from "class-validator";
 import { IsValidCPF } from "src/common/decorator/dto/isCpf.decorator.dto";
 import { Hashing } from "src/common/decorator/dto/password-hash.decorator.dto";
