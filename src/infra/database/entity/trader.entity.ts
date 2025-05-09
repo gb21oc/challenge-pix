@@ -2,10 +2,13 @@ import { Column, Entity, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class TraderEntity {
-    @PrimaryColumn()
+    @PrimaryColumn("uuid")
+    readonly id: string
+
+    @Column({ unique: true })
     readonly cnpj: string
 
-    @PrimaryColumn()
+    @Column({ unique: true })
     readonly email: string
 
     @Column()
