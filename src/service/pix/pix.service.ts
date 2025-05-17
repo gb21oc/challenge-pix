@@ -25,7 +25,7 @@ export class PixService {
             const repository = manager
                 ? manager.getRepository(PixEntity)
                 : this._pixEntity;
-            return await repository.save(updatePix)
+            return repository.save(updatePix)
         } catch (e) {
             this.logger.error(e.message)
             if (e instanceof HttpException) throw e
