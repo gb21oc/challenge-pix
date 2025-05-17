@@ -33,7 +33,7 @@ export class PixEntity {
     trader?: TraderEntity;
 
     @Column({ type: 'numeric', precision: 10, scale: 2, default: 100 })
-    balance: number;
+    balance: string;
 
     @Column({ type: 'enum', enum: PIX_TYPE_ENUM })
     type: PIX_TYPE_ENUM;
