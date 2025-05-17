@@ -28,7 +28,7 @@ export function IsValidCPF(validationOptions?: ValidationOptions) {
                     return rest === parseInt(cpf.charAt(10));
                 },
                 defaultMessage(args: ValidationArguments) {
-                    return `CPF ${args.property} is not valid.`;
+                    return `cpf ${args.property} is not valid.`;
                 },
             },
         });
