@@ -21,11 +21,16 @@ export class PaymentController {
         return res.send("OK")
     }
 
-    @Post(":userId")
-    @HttpCode(201)
-    async post(@Body() body: PaymentDTO, @Param("userId") userId: string, @Res() res: FastifyReply) {
+    @Post("create/:userId")
+    async createPayment(@Body() body: PaymentDTO, @Param("userId") userId: string, @Res() res: FastifyReply) {
         const payment: Payment = { ...body, userId }
-        return await this._paymentService.sendPix(payment, res)
+        return await this._paymentService.createPayment(payment, res)
+    }
+
+    @Post("confirm")
+    @HttpCode(201)
+    async post(@Body("pix") paymentId: string, @Res() res: FastifyReply) {
+        return await this._paymentService.confirmPayment(paymentId, res)
     }
 
 
