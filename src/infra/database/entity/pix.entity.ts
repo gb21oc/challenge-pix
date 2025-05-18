@@ -1,21 +1,15 @@
-import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-    ManyToOne,
-    JoinColumn,
-} from 'typeorm';
-import { UserEntity } from './user.entity';
-import { TraderEntity } from './trader.entity';
-import { PIX_TYPE_ENUM } from 'src/common/enums';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { TraderEntity } from "./trader.entity";
+import { UserEntity } from "./user.entity";
+import { PIX_STATUS } from "src/common/enums/pix-status.enum";
 
-@Entity('pix')
+@Entity("pix")
 export class PixEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id?: string;
 
     @Column({ nullable: true })
-    userId?: string;
+    userId: string;
 
     @ManyToOne(() => UserEntity)
     @JoinColumn([
@@ -24,7 +18,7 @@ export class PixEntity {
     user?: UserEntity;
 
     @Column({ nullable: true })
-    traderId?: string;
+    traderId: string;
 
     @ManyToOne(() => TraderEntity)
     @JoinColumn([
@@ -32,15 +26,24 @@ export class PixEntity {
     ])
     trader?: TraderEntity;
 
-    @Column({ type: 'numeric', precision: 10, scale: 2, default: 100 })
-    balance: string;
+    @Column({ type: 'numeric', precision: 10, scale: 2 })
+    amount: string
 
-    @Column({ type: 'enum', enum: PIX_TYPE_ENUM })
-    type: PIX_TYPE_ENUM;
+    @Column({ type: 'enum', enum: PIX_STATUS })
+    status: PIX_STATUS;
+
+    @Column()
+    paymentId: string
+
+    @Column()
+    qrCode: string
 
     @Column()
     created_at: string;
 
     @Column()
     updated_at: string;
+
+    @Column({ type: 'timestamp' })
+    expires_at: Date
 }
