@@ -1,8 +1,8 @@
 import { IsDateString, IsEnum, IsOptional, IsString, IsUUID } from "class-validator";
-import { PIX_TYPE_ENUM } from "src/common/enums";
-import { PixEntity } from "src/infra/database/entity/pix.entity";
+import { WALLET_TYPE_ENUM } from "src/common/enums";
+import { WalletEntity } from "src/infra/database/entity/wallet.entity";
 
-export class PixDTO implements Omit<PixEntity, "id" | "created_at" | "user" | "userId" | "trader" | "balance" | "updated_at"> {
+export class PixDTO implements Omit<WalletEntity, "id" | "created_at" | "user" | "userId" | "trader" | "balance" | "updated_at"> {
     @IsUUID()
     @IsOptional()
     userId?: string;
@@ -11,8 +11,8 @@ export class PixDTO implements Omit<PixEntity, "id" | "created_at" | "user" | "u
     @IsOptional()
     traderId?: string;
 
-    @IsEnum(PIX_TYPE_ENUM)
-    type: PIX_TYPE_ENUM;
+    @IsEnum(WALLET_TYPE_ENUM)
+    type: WALLET_TYPE_ENUM;
 
     @IsString()
     @IsOptional()

@@ -7,12 +7,12 @@ import { UserService } from './user.service';
 import { UserController } from './user.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from 'src/infra/database/entity';
-import { PixEntity } from 'src/infra/database/entity/pix.entity';
+import { WalletEntity } from 'src/infra/database/entity/wallet.entity';
 import { PixService } from 'src/service/pix/pix.service';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([UserEntity, PixEntity]),
+        TypeOrmModule.forFeature([UserEntity, WalletEntity]),
     ],
     controllers: [
         UserController,],
