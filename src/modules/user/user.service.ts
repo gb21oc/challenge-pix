@@ -11,7 +11,7 @@ import { BadRequestException, HttpException, Injectable, InternalServerErrorExce
 import { UserEntity } from 'src/infra/database/entity';
 import { UserDTO } from './dto/user.dto';
 import { PixService } from 'src/service/pix/pix.service';
-import { PIX_TYPE_ENUM } from 'src/common/enums';
+import { WALLET_TYPE_ENUM } from 'src/common/enums';
 import { DEFAULT_MESSAGE } from 'src/common/constants';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class UserService {
             await manager.getRepository(UserEntity).save(user)
             const pix = await this._pixService.savePix(
                 {
-                    type: PIX_TYPE_ENUM.USER,
+                    type: WALLET_TYPE_ENUM.USER,
                     userId: user.id,
                     traderId: null
                 },

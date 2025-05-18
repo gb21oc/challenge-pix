@@ -8,7 +8,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository, EntityManager, QueryFailedError } from 'typeorm';
 import { BadRequestException, HttpException, Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 
-import { PIX_TYPE_ENUM } from 'src/common/enums';
+import { WALLET_TYPE_ENUM } from 'src/common/enums';
 import { UserService } from '../user/user.service';
 import { DEFAULT_MESSAGE } from 'src/common/constants';
 import { PixService } from 'src/service/pix/pix.service';
@@ -30,7 +30,7 @@ export class TraderService {
             await manager.getRepository(TraderEntity).save(trader)
             const pix = await this._pixService.savePix(
                 {
-                    type: PIX_TYPE_ENUM.TRADER,
+                    type: WALLET_TYPE_ENUM.TRADER,
                     userId: null,
                     traderId: trader.id
                 },

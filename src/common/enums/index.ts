@@ -1,1 +1,1 @@
-export * from "./pix.enum"
+export * from "./wallet.enum"

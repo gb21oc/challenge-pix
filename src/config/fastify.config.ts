@@ -9,7 +9,7 @@ export class FastifyConfig {
             transform: true
         }));
         app.setGlobalPrefix("challenges-pix")
-        logger.log(FastifyConstants.RUNNING);
+        logger.log(FastifyConstants.RUNNING());
 
     }
 }

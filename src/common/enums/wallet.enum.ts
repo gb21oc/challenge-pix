@@ -1,4 +1,4 @@
-export enum PIX_TYPE_ENUM {
+export enum WALLET_TYPE_ENUM {
     USER = "USER",
     TRADER = "TRADER"
 }
